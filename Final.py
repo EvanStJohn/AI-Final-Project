@@ -2,14 +2,15 @@ import Data
 import Classifiers
 
 
-
-samples = 1000
-noise = 5
+samples = 5000
+noise = 25
 
 trainingData, trainingLabels, testData, testLabels = Data.createData(samples, noise)
 
+Classifiers.MLP(trainingData, trainingLabels, testData, testLabels)
+
+Classifiers.radialBF(trainingData, trainingLabels, testData, testLabels)
+
 Classifiers.SVM(trainingData, trainingLabels, testData, testLabels)
 
-# Forest.run(trainingData, trainingLabels, testData, testLabels)
-
-# SVM.run(trainingData, trainingLabels, testData, testLabels)
+Classifiers.RF(trainingData, trainingLabels, testData, testLabels)

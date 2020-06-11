@@ -1,4 +1,5 @@
 import random
+import csv
 
 characters = []
 # A
@@ -111,9 +112,9 @@ def createData(samples, noise, letters=characters, values=labels):
         trainingData.append(letters[i][:])
         trainingLabels.append(values[i])
         for j in range(trainingAmount):
-            trainingData.append(createNoise(letters[i], noise)[:])
+            trainingData.append(createNoise(letters[i][:], noise))
             trainingLabels.append(values[i])
         for j in range(testAmount):
-            testData.append(createNoise(letters[i], noise)[:])
+            testData.append(createNoise(letters[i][:], noise))
             testLabels.append(values[i])
     return trainingData, trainingLabels, testData, testLabels
